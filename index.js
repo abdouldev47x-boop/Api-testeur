@@ -11,16 +11,17 @@ const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
   apiKey: process.env.API_KEY,
   defaultHeaders: {
-    "HTTP-Referer": "https://ton-site.com",
+    "HTTP-Referer": "https://ton-site.com",//ici, tu mettras le lien de ton site api mais comme tu n'en a pas ce n'est pas nécessaire. je l'ai juste mis pour que tu saches que ça sera utile quand tu auras ton site api
     "X-Title": "Mon API",
   },
 });
+
 
 app.post("/ask", async (req, res) => {
   try {
     const { prompt } = req.body;
     const completion = await openai.chat.completions.create({
-      model: "deepseek/deepseek-chat-v3.1:free",
+      model: "meta-llama/llama-3.3-8b-instruct:free",//ici tu met le modèle de l'api que tu as copier sur openrouter
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -30,7 +31,7 @@ app.post("/ask", async (req, res) => {
   }
 });
 
-
+//cette partie est juste pour l'utilisation de l'api dans tes projets 
 app.get("/ask", async (req, res) => {
   try {
     const prompt = req.query.prompt || "Bonjour";
