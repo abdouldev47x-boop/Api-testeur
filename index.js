@@ -16,7 +16,6 @@ const openai = new OpenAI({
   },
 });
 
-// POST (utile pour applis, mobile, etc.)
 app.post("/ask", async (req, res) => {
   try {
     const { prompt } = req.body;
@@ -31,7 +30,7 @@ app.post("/ask", async (req, res) => {
   }
 });
 
-// GET (utile pour tester dans la barre de recherche du navigateur)
+
 app.get("/ask", async (req, res) => {
   try {
     const prompt = req.query.prompt || "Bonjour";
