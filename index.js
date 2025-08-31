@@ -36,7 +36,7 @@ app.get("/ask", async (req, res) => {
   try {
     const prompt = req.query.prompt || "Bonjour";
     const completion = await openai.chat.completions.create({
-      model: "deepseek/deepseek-chat-v3.1:free",
+      model: "meta-llama/llama-3.3-8b-instruct:free",
       messages: [{ role: "user", content: prompt }],
     });
 
