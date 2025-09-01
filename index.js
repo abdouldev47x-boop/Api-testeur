@@ -21,7 +21,7 @@ app.post("/ask", async (req, res) => {
   try {
     const { prompt } = req.body;
     const completion = await openai.chat.completions.create({
-      model: "meta-llama/llama-3.3-8b-instruct:free",//ici tu met le modèle de l'api que tu as copier sur openrouter
+      model: "meta-llama/llama-3.1-405b-instruct:free",//ici tu met le modèle de l'api que tu as copier sur openrouter
       messages: [{ role: "user", content: prompt }],
     });
 
@@ -36,7 +36,7 @@ app.get("/ask", async (req, res) => {
   try {
     const prompt = req.query.prompt || "Bonjour";
     const completion = await openai.chat.completions.create({
-      model: "meta-llama/llama-3.3-8b-instruct:free",
+      model: "meta-llama/llama-3.1-405b-instruct:free",
       messages: [{ role: "user", content: prompt }],
     });
 
